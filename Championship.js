@@ -1,16 +1,17 @@
 let namesArray = [];
-let fechas = 0;
+let rounds = 0;
 let player = document.getElementById('player'); //Se necesita una primera variable para capturar el elemento "player" y luego resetearlo con la función "resetName"
 let name = ''; //Se necesita una segunda variable con espacio vacío y esta va a capturar el valor del mismo elemento "player" dentro de la función "savingName"
 let arraysContainer = [];
 let matches = 0;
 let dia = 0;
+let changing = 0;
 
 function savingName() {
     let name = document.getElementById('player').value;
     if (name.trim() !== '')   {
         namesArray.push(name);
-        fechas = namesArray.length;
+        rounds = namesArray.length;
     } else  {
         alert('Por favor ingrese un nombre valido');
     } //En la condición se usa el método "trim" que elimina los espacios en blanco al inicio y al final de la cadena de texto a la que estemos aplicando, en este caso "name". Si "name" sin espacios en blanco delante y detrás es diferente a un espacio vacío, entonces pusheamos "name" dentro de namesArray. Caso sontrario, aparece el "alert".
@@ -23,29 +24,35 @@ const resetName = () => {
     document.getElementById('record').disabled = false;
 }
 
+const calculating = () =>   {
+    matches = rounds / 2;
+    for (let i = 1; i < rounds; i++)  { 
+        dia = i-1;
+        let newArray = [];
+        arraysContainer.push(newArray);
+        for (let j = 0; j < matches; j++)   {
+            let againArray = [];
+            let first = j; 
+            let second = (rounds-1) - j;
+            againArray.push(namesArray[first]);
+            againArray.push(namesArray[second]);
+            arraysContainer[dia].push(againArray);
+        }
+        let movingName = namesArray[1];
+        namesArray.splice([1],1);
+        namesArray.push(movingName);
+    }
+    console.log(arraysContainer);
+}
+
 const creatingArray = () => {
-    if (fechas % 2 === 0)   {
-        matches = fechas / 2;
-        for (let i = 1; i < fechas; i++)  {
-            dia = i-1;
-            let newArray = [];
-            arraysContainer.push(newArray);
-            for (let i = 0; i < matches; i++)   {
-                let againArray = [];
-                let first = i;//Empieza lineas de duda. Hay que hacer un juego de variables.
-                let second = i + 1 ;
-                againArray.push(namesArray[first]);
-                againArray.push(namesArray[second]);//termina lineas de duda
-                arraysContainer[dia].push(againArray);
-            }
-        }
-        console.log(arraysContainer);
+    document.getElementById('close').disabled = true;
+    if (rounds % 2 === 0)   {
+        calculating();
     } else  {
-        for (let i = 0; i < fechas; i++)  {
-            let newArray = [];
-            arraysContainer.push(newArray);
-        }
-        console.log(arraysContainer);
+        namesArray.push('Descansa');
+        rounds = rounds + 1;
+        calculating();
     }
 }
 
