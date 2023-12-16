@@ -1,7 +1,6 @@
 let namesArray = [];
 let rounds = 0;
-let player = document.getElementById('player'); //Se necesita una primera variable para capturar el elemento "player" y luego resetearlo con la función "resetName"
-let name = ''; //Se necesita una segunda variable con espacio vacío y esta va a capturar el valor del mismo elemento "player" dentro de la función "savingName"
+let player = document.getElementById('player'); 
 let arraysContainer = [];
 let matches = 0;
 let dia = 0;
@@ -11,7 +10,6 @@ function savingName() {
     let name = document.getElementById('player').value;
     if (name.trim() !== '')   {
         namesArray.push(name);
-        rounds = namesArray.length;
     } else  {
         alert('Por favor ingrese un nombre valido');
     } //En la condición se usa el método "trim" que elimina los espacios en blanco al inicio y al final de la cadena de texto a la que estemos aplicando, en este caso "name". Si "name" sin espacios en blanco delante y detrás es diferente a un espacio vacío, entonces pusheamos "name" dentro de namesArray. Caso sontrario, aparece el "alert".
@@ -25,6 +23,7 @@ const resetName = () => {
 }
 
 const calculating = () =>   {
+    rounds = namesArray.length;
     matches = rounds / 2;
     for (let i = 1; i < rounds; i++)  { 
         dia = i-1;
