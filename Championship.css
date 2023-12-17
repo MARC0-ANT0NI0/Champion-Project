@@ -1,0 +1,66 @@
+*   {     box-sizing: border-box;   }
+
+body    {
+    min-height: 100vh;
+    background-image: linear-gradient(to bottom left, rgba(11, 11, 133, 0.952) 10%, rgba(5, 5, 31, 0.952));
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.common {
+    background-image: linear-gradient(to right, rgb(117, 10, 10), rgb(250, 3, 3), rgb(117, 10, 10));
+    text-align: center;
+    color: white;
+}
+
+h1  {
+    margin: 30px auto;
+    font-size: 3.5rem;
+    border: 7px ridge white;
+}
+
+.logo   {
+    width: 95%;
+    margin: 40px auto;
+}
+
+.logo img   {
+    width: 100%;
+}
+
+.names  {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.names label    {
+    text-align: center;
+    font-size: 1.7rem;
+    text-shadow: 2px 2px 3px red, -2px -2px 3px red, 2px -2px 3px red, -2px 2px red;
+    color: black;
+    margin-bottom: 10px;
+}
+
+.names input    {
+    border: 3px solid white;
+    width: 70%;
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+}
+
+.commonButtons  {
+    width: 40%;
+    font-size: 1.05rem;
+}
+
+.finalButtons   {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 30px;
+}
+
+a > button  {
+    font-size: 1.05rem;
+}
