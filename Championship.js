@@ -30,6 +30,13 @@ const calculating = () =>   {
         dia = i-1;
         let newArray = [];
         arraysContainer.push(newArray);
+
+        const body = document.body;
+        let newDiv = document.createElement('div');
+        newDiv.className = 'date';
+        const textDiv = document.createTextNode('Fecha ' + i);
+        newDiv.appendChild(textDiv);
+        body.appendChild(newDiv);
         for (let j = 0; j < matches; j++)   {
             let againArray = [];
             let first = j; 
@@ -37,7 +44,30 @@ const calculating = () =>   {
             againArray.push(namesArray[first]);
             againArray.push(namesArray[second]);
             arraysContainer[dia].push(againArray);
-            //Aquí se le agrega innerHTML para poner divs que contengan las fechas y los nombres de los peleadores. La cantidad de divs de fechas va a depender de la cantidad de fechas y la cantidad de divs de encuentros por fecha dependerá de los encuentros por fecha.
+
+            let anotherDiv = document.createElement('div');
+            anotherDiv.className = 'match';
+            newDiv.appendChild(anotherDiv);
+            
+            let divOne = document.createElement('div');
+            let divTwo = document.createElement('div');
+            let divThree = document.createElement('div');
+            divOne.className = 'finalDiv';
+            divTwo.className = 'finalDiv';
+            divThree.className = 'finalDiv';
+            let textFirst = document.createTextNode(namesArray[first]);
+            divOne.appendChild(textFirst);
+            let newImage = document.createElement('img');
+            newImage.src = '/Images/Versus.jpg';
+            divTwo.appendChild(newImage);
+            let textSecond = document.createTextNode(namesArray[second]);
+            divThree.appendChild(textSecond);
+            anotherDiv.appendChild(divOne);
+            anotherDiv.appendChild(divTwo);
+            anotherDiv.appendChild(divThree);
+            //Se debe agregar clase finalDiv a los 3 y el ancho de ellos debe ser 30% y se usa space around para espaciarlos. Luego se les da el formato de colores y texto
+            
+            //Aquí se le agrega innerHTML para poner divs que contengan los encuentros.Se crea un div clase match, display:flex y dentro de match, 3 divs más con display:inline, 2 divs para los nombres y eldel medio para la imagen vs.
         }
         let movingName = namesArray[1];
         namesArray.splice([1],1);
@@ -48,6 +78,8 @@ const calculating = () =>   {
 
 const creatingArray = () => {
     document.getElementById('close').disabled = true;
+    document.getElementById('newOne').disabled = true;
+    player.value = '';
     if (rounds % 2 === 0)   {
         calculating();
     } else  {
@@ -55,7 +87,6 @@ const creatingArray = () => {
         rounds = rounds + 1;
         calculating();
     }
-    //window.open('Fixture.html', '_blank');
 }
 
 document.getElementById('record').addEventListener('click', savingName);

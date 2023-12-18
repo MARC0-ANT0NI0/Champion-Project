@@ -51,8 +51,8 @@ h1  {
 }
 
 .commonButtons  {
-    width: 40%;
-    font-size: 1.05rem;
+    width: 45%;
+    font-size: 1.15rem;
 }
 
 .finalButtons   {
@@ -61,6 +61,32 @@ h1  {
     margin-bottom: 30px;
 }
 
-a > button  {
-    font-size: 1.05rem;
+.date   {
+    margin: 40px 0;
+    text-align: center;
+    color: white;
+    font-size: 3.2rem;
+    border: 3px ridge white;
+}
+
+.match  {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border: 1px solid white;
+    margin: 10px auto;
+    width: 95%;
+    background-image: linear-gradient(to right, rgb(245, 5, 5) 3%, rgb(34, 4, 4) 25% 70%, rgb(4, 28, 243) 90%);;
+}
+
+.finalDiv   {
+    display: flex;
+    justify-content: center;
+    width: 30%;
+    font-size: 2rem;
+    
+}
+
+.finalDiv img   {
+    width: 100%;
 }
